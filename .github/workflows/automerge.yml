@@ -17,6 +17,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # ✅ VERY IMPORTANT FIX
+      - name: Checkout PR head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
@@ -28,6 +34,9 @@ jobs:
 
       - name: Terraform Format
         run: terraform fmt -check
+
+      - name: Debug PR Context
+        run: echo "PR Number is ${{ github.event.pull_request.number }}"
 
       - name: Enable Auto Merge
         uses: peter-evans/enable-pull-request-automerge@v3

@@ -17,7 +17,7 @@
                 "kind": "Http",
                 "inputs": {
                     "statusCode": 200,
-                    "body": "Its from logic app to check on you!!!"
+                    "body": "Updated test for auto merge!!!"
                 },
                 "runAfter": {}
             }
