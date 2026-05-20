@@ -15,3 +15,5 @@ resource "azurerm_resource_group_template_deployment" "logicapp" {
 }
 
 # comments to track
+
+# deploying this resource_explorer data into ARM
