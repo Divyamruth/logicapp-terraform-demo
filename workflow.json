@@ -17,7 +17,7 @@
                 "kind": "Http",
                 "inputs": {
                     "statusCode": 200,
-                    "body": "Its from logic app to check on you!!!"
+                    "body": "From logic app to check on you!!!"
                 },
                 "runAfter": {}
             }
