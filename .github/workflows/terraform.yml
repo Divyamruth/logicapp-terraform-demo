@@ -1,0 +1,28 @@
+name: Terraform Deploy (No SP)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ✅ Checkout code
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ✅ Setup Terraform
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      # ✅ Install Azure CLI
+      - name: Install Azure CLI
+        run: |
+          curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+      # ✅ Azure Login using device code (interactive workaround)
+      - name: Azure Login
+        run: az login --use-device-code
