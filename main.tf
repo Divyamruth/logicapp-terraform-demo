@@ -13,6 +13,6 @@ resource "azurerm_resource_group_template_deployment" "logicapp" {
 
   template_content = file("workflow.json")
 }
-    
 
-#deploying this resource_explorer data into ARM
+
+# deploying this resource_explorer data into ARM
