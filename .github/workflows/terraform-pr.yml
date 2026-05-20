@@ -1,0 +1,35 @@
+name: Terraform PR Validation
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ✅ Checkout code from PR
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # ✅ Setup Terraform
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      # ✅ Init Terraform
+      - name: Terraform Init
+        run: terraform init
+
+      # ✅ Validate Terraform syntax
+      - name: Terraform Validate
+        run: terraform validate
+
+      # ✅ Check formatting
+      - name: Terraform Format Check
+        run: terraform fmt -check
+
+      # ✅ Plan changes (PR validation)
+      - name: Terraform Plan
+        run: terraform plan -no-color
